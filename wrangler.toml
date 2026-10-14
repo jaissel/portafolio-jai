@@ -1,11 +1,14 @@
-name = "jai-portfolio"
+name = "jaissel"
 compatibility_date = "2026-10-01"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "dist"
 
+[vars]
+# URL pública para canonical, hreflang, sitemap y OG. Cambiar cuando esté el dominio .dev
+NUXT_PUBLIC_SITE_URL = "https://jaissel.pages.dev"
+
 [[d1_databases]]
 binding = "DB"
 database_name = "jai-portfolio"
-# Reemplazar por el id real tras `wrangler d1 create jai-portfolio`
-database_id = "00000000-0000-0000-0000-000000000000"
+database_id = "9a8535be-13a2-4a15-a775-0c0f961e933f"
 migrations_dir = "server/database/migrations"
