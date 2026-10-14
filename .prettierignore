@@ -1,0 +1,9 @@
+design
+pnpm-lock.yaml
+public
+.nuxt
+.output
+dist
+.wrangler
+*.md
+.claude

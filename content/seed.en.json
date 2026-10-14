@@ -1,0 +1,208 @@
+{
+  "hero": {
+    "chip": "> senior full stack · e-commerce · AI automation · SEO/AEO",
+    "title": "I INTEGRATE,\nAUTOMATE\nAND SCALE",
+    "script": "your e-commerce",
+    "body": "Hi, I’m Jaissel. Full stack developer with 10+ years in multi-country e-commerce: I connect marketplaces, automate processes with n8n and AI, and make sites easy to find on Google and in AI answers.",
+    "ctaPrimary": "See my work",
+    "ctaSecondary": "Download CV",
+    "badge": "{ open\nto\nprojects }",
+    "avatarAlt": "3D avatar of Jaissel coding",
+    "codeCard": {
+      "role": "senior full stack",
+      "years": 10,
+      "stack": ["React", "Vue", "Node"],
+      "loves": "n8n + AI"
+    },
+    "cvUrl": "/cv/Jaissel-Perez-CV-EN.pdf"
+  },
+  "about": {
+    "title": "FROM PROBLEM\nTO PRODUCTION",
+    "body": "I work autonomously: I define the problem, build the solution and ship it to production. I also mentor developers and turn business needs into concrete systems.",
+    "signature": "Jai ♡",
+    "avatarAlt": "3D avatar of Jaissel winking"
+  },
+  "services": [
+    {
+      "title": "Integrations",
+      "body": "Marketplaces, inventory and shipping in sync."
+    },
+    {
+      "title": "Automation & AI",
+      "body": "n8n flows, webhooks and AI assistants."
+    },
+    {
+      "title": "Technical SEO & AEO",
+      "body": "JSON-LD, migrations and multilingual sites."
+    },
+    {
+      "title": "Internal apps",
+      "body": "Role-based dashboards, reports and exports."
+    }
+  ],
+  "projects": {
+    "title": "CASE STUDIES",
+    "items": [
+      {
+        "slug": "marketplace-hub",
+        "tag": "INTEGRATIONS",
+        "title": "Marketplace hub",
+        "metric": "6",
+        "metricLabel": "marketplaces in sync",
+        "body": "Products, inventory, pricing, orders and sales reports with Amazon, Walmart, Mercado Libre, Coppel, Liverpool and Privalia, connected to SkuVault (inventory) and ShipStation (shipping).",
+        "stack": ["Node.js", "SQL Server", "React"]
+      },
+      {
+        "slug": "whatsapp-automation",
+        "tag": "AUTOMATION",
+        "title": "Self-running WhatsApp",
+        "metric": "−4,000",
+        "metricLabel": "idle executions per month",
+        "body": "Order confirmation, first contact and status inquiries with full traceability. Redesigned the architecture from webhooks to scheduled jobs.",
+        "stack": ["n8n", "Meta Cloud API", "Vue 3", "MongoDB"]
+      },
+      {
+        "slug": "multi-country-seo",
+        "tag": "SEO / AEO",
+        "title": "Multi-country SEO",
+        "metric": "11",
+        "metricLabel": "sites across countries and languages",
+        "body": "Audits, JSON-LD structured data, E-E-A-T author profiles, keyword clusters and a legacy migration with no traffic loss.",
+        "stack": ["JSON-LD", "Search Console", "Ahrefs"]
+      },
+      {
+        "slug": "cache-at-scale",
+        "tag": "PERFORMANCE",
+        "title": "Caching at scale",
+        "metric": "~73K",
+        "metricLabel": "products with invalidation and warm-up",
+        "body": "Fixed a production bottleneck with automatic cache invalidation and warm-up.",
+        "stack": ["Node.js", "Nginx", "Linux"]
+      }
+    ]
+  },
+  "stack": {
+    "title": "STACK BY LAYER",
+    "layers": [
+      {
+        "name": "front",
+        "items": ["React", "Vue 3", "Nuxt", "TypeScript", "Tailwind"]
+      },
+      {
+        "name": "back",
+        "items": ["Node.js", "Express", "SQL Server", "MongoDB"]
+      },
+      {
+        "name": "automation",
+        "items": ["n8n", "Webhooks", "WhatsApp API", "Claude · Gemini"]
+      },
+      {
+        "name": "e-commerce",
+        "items": ["Shopify", "Liquid", "Admin API"]
+      },
+      {
+        "name": "infra · seo",
+        "items": ["DigitalOcean", "Nginx", "PM2", "JSON-LD"]
+      }
+    ]
+  },
+  "stats": [
+    {
+      "value": "10+",
+      "label": "years in\ndevelopment"
+    },
+    {
+      "value": "11",
+      "label": "sites with\nSEO & AEO"
+    },
+    {
+      "value": "6",
+      "label": "marketplaces\nintegrated"
+    },
+    {
+      "value": "4K+",
+      "label": "executions saved\nper month"
+    }
+  ],
+  "lab": {
+    "title": "WHAT I’M ON RIGHT NOW",
+    "body": "Recent commits, AI experiments and what I’m learning. Auto-updated from GitHub.",
+    "manual": [
+      {
+        "text": "AI assistants for operational analysis"
+      },
+      {
+        "text": "automated multi-site content"
+      }
+    ],
+    "learning": "conversational English and how to build even more with Claude"
+  },
+  "ask": {
+    "label": "> ai_experiment",
+    "status": "Jai bot · online",
+    "title": "ASK MY\nPORTFOLIO",
+    "body": "An AI assistant that answers questions about my experience, projects and stack, powered by my own structured data.",
+    "placeholder": "Ask a question…",
+    "faq": [
+      {
+        "q": "Have you integrated marketplaces?",
+        "a": "Yes: Amazon, Walmart, Mercado Libre, Coppel, Liverpool and Privalia, synced with inventory (SkuVault) and shipping (ShipStation)."
+      },
+      {
+        "q": "What do you do with AI?",
+        "a": "I design assistants for operational analysis and automated technical reports, plus n8n flows that connect AI to WhatsApp and dashboards."
+      },
+      {
+        "q": "Do you work in English?",
+        "a": "Yes. I hold a C1 English certificate and have worked for years with teams and sites across several countries."
+      },
+      {
+        "q": "How can I reach you?",
+        "a": "Email jaissel92@gmail.com or message me on LinkedIn and we’ll set up a call."
+      }
+    ]
+  },
+  "footer": {
+    "title": "LET’S BUILD",
+    "script": "something that scales",
+    "cta": "Email me",
+    "note": "built with code, not templates",
+    "email": "jaissel92@gmail.com",
+    "linkedin": "https://linkedin.com/in/jnpm",
+    "github": "https://github.com/jaissel",
+    "gitlab": "https://gitlab.com/jaissel2b"
+  },
+  "nav": {
+    "work": "/work",
+    "services": "/services",
+    "stack": "/stack",
+    "contact": "/contact",
+    "cta": "Let’s talk"
+  },
+  "profile": {
+    "name": "Jaissel Pérez",
+    "jobTitle": "Senior Full Stack Developer",
+    "alumniOf": "Universidad Centroccidental Lisandro Alvarado",
+    "degree": "Computer Engineering"
+  },
+  "seo": {
+    "title": "Jaissel Pérez · Senior Full Stack Developer · E-commerce, AI & SEO",
+    "description": "Full stack developer with 10+ years in multi-country e-commerce: marketplace integrations, automation with n8n and AI, and technical SEO/AEO."
+  },
+  "ui": {
+    "logo": "jai.dev",
+    "skip": "Skip to content",
+    "navLabel": "Main",
+    "langLabel": "Language",
+    "labLive": "/lab · live",
+    "learning": "learning:",
+    "askAvatarAlt": "Animated avatar of Jaissel",
+    "askSend": "Send question",
+    "askSuggested": "Suggested questions",
+    "askFallback": "The AI chat is coming very soon. Meanwhile, try the suggested questions or email me at jaissel92@gmail.com.",
+    "socialLabel": "Contact and social",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "swipe": "swipe"
+  }
+}

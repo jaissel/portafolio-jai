@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Portafolio JAi · Móvil</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&amp;family=JetBrains+Mono:wght@400;600&amp;family=Caveat:wght@600&amp;family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF4EA}
+a{color:#B83A0C}a:hover{color:#8A2B08}
+</style>
+</helmet>
+<div style="width: 390px; font-family: 'DM Sans', sans-serif; color: #3A1A0E; background: #FFF4EA; overflow: hidden; position: relative">
+
+<header style="padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 10px; position: relative; z-index: 5">
+<a href="#top" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px; color: {{accent}}; text-decoration: none">jai<span style="color: #E0457B">.</span>dev</a>
+<div style="display: flex; align-items: center; gap: 8px">
+<div role="group" aria-label="Idioma" style="display: flex; background: #FFE3D3; border-radius: 999px; padding: 3px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600">
+<button type="button" onClick="{{setEs}}" aria-pressed="{{isEs}}" style="border: 0; border-radius: 999px; min-width: 44px; min-height: 38px; font: inherit; background: {{esBg}}; color: {{esFg}}">ES</button>
+<button type="button" onClick="{{setEn}}" aria-pressed="{{isEn}}" style="border: 0; border-radius: 999px; min-width: 44px; min-height: 38px; font: inherit; background: {{enBg}}; color: {{enFg}}">EN</button>
+</div>
+<button type="button" onClick="{{toggleMenu}}" aria-label="Menú" aria-expanded="{{menuOpen}}" style="width: 44px; height: 44px; border-radius: 14px; border: 0; background: {{accent}}; color: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px">
+<sc-if value="{{menuClosed}}" hint-placeholder-val="{{ true }}">
+<span aria-hidden="true" style="width: 18px; height: 2px; background: #FFFFFF; border-radius: 2px"></span>
+<span aria-hidden="true" style="width: 18px; height: 2px; background: #FFFFFF; border-radius: 2px"></span>
+<span aria-hidden="true" style="width: 12px; height: 2px; background: #FFFFFF; border-radius: 2px; align-self: center"></span>
+</sc-if>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<span aria-hidden="true" style="font-size: 22px; line-height: 1">×</span>
+</sc-if>
+</button>
+</div>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<nav aria-label="Principal" style="position: absolute; top: 72px; left: 12px; right: 12px; background: #2A1209; border-radius: 24px; padding: 20px; display: flex; flex-direction: column; gap: 4px; box-shadow: 0 20px 40px rgba(58,26,14,0.3)">
+<a href="#proyectos" onClick="{{closeMenu}}" style="color: #FFE3D3; text-decoration: none; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 28px; padding: 8px 4px">{{t.navWork}}</a>
+<a href="#servicios" onClick="{{closeMenu}}" style="color: #FFE3D3; text-decoration: none; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 28px; padding: 8px 4px">{{t.navServices}}</a>
+<a href="#stack" onClick="{{closeMenu}}" style="color: #FFE3D3; text-decoration: none; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 28px; padding: 8px 4px">/stack</a>
+<a href="#contacto" onClick="{{closeMenu}}" style="color: #FFE3D3; text-decoration: none; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 28px; padding: 8px 4px">{{t.navContact}}</a>
+<a href="#contacto" onClick="{{closeMenu}}" style="margin-top: 12px; background: {{accent}}; color: #FFFFFF; text-decoration: none; font-weight: 700; text-align: center; padding: 16px; border-radius: 999px">{{t.cta}} →</a>
+</nav>
+</sc-if>
+</header>
+
+<section id="top" style="padding: 8px 20px 48px; display: flex; flex-direction: column; gap: 18px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; line-height: 1.5; color: #B83A0C; background: #FFE3D3; padding: 8px 12px; border-radius: 8px; align-self: flex-start">&gt; senior full stack · e-commerce · AI · SEO/AEO<span style="color: #E0457B">_</span></div>
+<h1 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 54px; line-height: 0.9; letter-spacing: -0.02em; color: {{accent}}; white-space: pre-line">{{t.heroTitle}}<span style="display: block; font-family: 'Caveat', cursive; font-weight: 600; color: #E0457B; font-size: 44px; letter-spacing: 0; margin-top: 4px">{{t.heroScript}}</span></h1>
+<p style="margin: 0; font-size: 16px; line-height: 1.55">{{t.heroBody}}</p>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<a href="#proyectos" style="background: {{accent}}; color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 16px; border-radius: 999px; text-align: center">{{t.btnWork}} →</a>
+<a href="#contacto" style="border: 2px solid #3A1A0E; color: #3A1A0E; text-decoration: none; font-weight: 700; padding: 14px; border-radius: 999px; text-align: center">{{t.btnCv}}</a>
+</div>
+<div style="position: relative; height: 430px; margin-top: 10px">
+<div aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 0; bottom: 30px; background: {{accent}}; border-radius: 180px 180px 32px 32px"></div>
+<img src="/_blob/e70de44fd15473cf7ec14a4178a5e6c9" alt="Avatar 3D de Jaissel programando" style="position: absolute; left: 18px; right: 18px; top: 18px; width: calc(100% - 36px); height: 360px; object-fit: cover; object-position: 60% 30%; background: #F0A6B8; border-radius: 160px 160px 24px 24px; display: block">
+<div style="position: absolute; right: -6px; top: -6px; width: 88px; height: 88px; border-radius: 50%; background: #FFF4EA; display: flex; align-items: center; justify-content: center; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 600; color: #B83A0C; line-height: 1.35; box-shadow: 0 8px 20px rgba(58,26,14,0.18); white-space: pre-line">{{t.badge}}</div>
+<div style="position: absolute; left: 0; bottom: 0; width: 230px; background: #2A1209; color: #FFE3D3; border-radius: 14px; padding: 12px 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; line-height: 1.6; box-shadow: 0 14px 30px rgba(58,26,14,0.3)">
+<div style="display: flex; gap: 5px; margin-bottom: 6px" aria-hidden="true"><span style="width: 8px; height: 8px; border-radius: 50%; background: #FF6B3D"></span><span style="width: 8px; height: 8px; border-radius: 50%; background: #F7A1BE"></span><span style="width: 8px; height: 8px; border-radius: 50%; background: #FFC36B"></span></div>
+<div><span style="color: #FF9B73">const</span> jai = {</div>
+<div>  years: <span style="color: #F7A1BE">10</span>,</div>
+<div>  loves: <span style="color: #FFC36B">'n8n + AI'</span></div>
+<div>}</div>
+</div>
+</div>
+</section>
+
+<section id="servicios" style="padding: 0 12px 48px">
+<div style="background: #FFFFFF; border-radius: 28px; padding: 20px; display: flex; flex-direction: column; gap: 20px">
+<div style="position: relative; height: 330px; background: #F7A1BE; border-radius: 160px 160px 22px 22px">
+<img src="/_blob/39a53f9ad0fcab3c56825083fdb59743" alt="Avatar 3D de Jaissel guiñando" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; border-radius: 160px 160px 22px 22px; display: block">
+<div aria-hidden="true" style="position: absolute; left: 12px; bottom: 12px; width: 52px; height: 52px; border-radius: 50%; background: {{accent}}; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 15px">{ }</div>
+</div>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 30px; line-height: 1.02; color: {{accent}}; white-space: pre-line">{{t.aboutTitle}}</h2>
+<p style="margin: 0; font-size: 15px; line-height: 1.6">{{t.aboutBody}}</p>
+<div style="font-family: 'Caveat', cursive; font-size: 30px; color: #E0457B; margin-top: -8px">JAi ♡</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{t.services}}" as="s" hint-placeholder-count="4">
+<div style="background: #FFF4EA; border-radius: 16px; padding: 14px"><div style="font-family: 'JetBrains Mono', monospace; color: #B83A0C; font-size: 12px">{{s.n}}</div><div style="font-weight: 700; font-size: 14px; margin-top: 4px; line-height: 1.25">{{s.title}}</div><div style="font-size: 13px; margin-top: 4px; line-height: 1.4">{{s.body}}</div></div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section id="proyectos" style="padding: 0 12px 48px">
+<div style="background: {{accent}}; border-radius: 28px; padding: 28px 0 24px; display: flex; flex-direction: column; gap: 18px">
+<div style="padding: 0 20px; display: flex; align-items: flex-end; justify-content: space-between; gap: 12px">
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 28px; line-height: 1; color: #FFFFFF">{{t.workTitle}}</h2>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #FFE3D3; white-space: nowrap">{{t.swipe}} →</span>
+</div>
+<div style="display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 20px 4px; scrollbar-width: none">
+<sc-for list="{{t.projects}}" as="p" hint-placeholder-count="4">
+<article style="flex: 0 0 270px; scroll-snap-align: start; background: #FFF4EA; border-radius: 20px; padding: 18px; display: flex; flex-direction: column; gap: 10px; box-sizing: border-box">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #B83A0C; letter-spacing: 0.08em">{{p.tag}}</div>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px; line-height: 1.05; color: {{accent}}">{{p.title}}</h3>
+<div style="background: #FFD7C4; border-radius: 14px; padding: 14px"><div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 32px; color: #8A2B08">{{p.metric}}</div><div style="font-size: 12px; color: #5A1F08">{{p.metricLabel}}</div></div>
+<p style="margin: 0; font-size: 13px; line-height: 1.5">{{p.body}}</p>
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A2B08">{{p.stack}}</div>
+</article>
+</sc-for>
+</div>
+<div aria-hidden="true" style="display: flex; justify-content: center; gap: 6px"><span style="width: 18px; height: 6px; border-radius: 3px; background: #FFFFFF"></span><span style="width: 6px; height: 6px; border-radius: 3px; background: #FFB596"></span><span style="width: 6px; height: 6px; border-radius: 3px; background: #FFB596"></span><span style="width: 6px; height: 6px; border-radius: 3px; background: #FFB596"></span></div>
+</div>
+</section>
+
+<section id="stack" style="padding: 0 12px 48px; display: flex; flex-direction: column; gap: 12px">
+<div style="background: #FFE3D3; border-radius: 28px; padding: 22px 20px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; color: {{accent}}">{{t.stackTitle}}</h2>
+<sc-for list="{{layers}}" as="l" hint-placeholder-count="5">
+<div style="display: flex; flex-direction: column; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 12px">
+<span style="font-weight: 600; color: #8A2B08">{{l.name}}</span>
+<div style="display: flex; flex-wrap: wrap; gap: 6px"><sc-for list="{{l.items}}" as="i"><span style="background: #FFFFFF; padding: 7px 10px; border-radius: 8px">{{i}}</span></sc-for></div>
+</div>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<div style="background: #FFD7C4; border-radius: 20px; padding: 18px"><div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 38px; color: {{accent}}">10+</div><div style="font-size: 13px; font-weight: 500; white-space: pre-line">{{t.stat1}}</div></div>
+<div style="background: #F7A1BE; border-radius: 20px; padding: 18px"><div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 38px; color: #6B1534">11</div><div style="font-size: 13px; font-weight: 500; color: #4A0E24; white-space: pre-line">{{t.stat2}}</div></div>
+<div style="background: #FFC36B; border-radius: 20px; padding: 18px"><div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 38px; color: #6A3A00">6</div><div style="font-size: 13px; font-weight: 500; color: #4A2800; white-space: pre-line">{{t.stat3}}</div></div>
+<div style="background: #FFFFFF; border-radius: 20px; padding: 18px"><div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 38px; color: {{accent}}">4K+</div><div style="font-size: 13px; font-weight: 500; white-space: pre-line">{{t.stat4}}</div></div>
+</div>
+</section>
+
+<section id="lab" style="padding: 0 12px 48px">
+<div style="background: #FFFFFF; border-radius: 28px; padding: 22px 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B83A0C">/lab · live<span style="color: #E0457B">_</span></div>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; line-height: 1.05; color: {{accent}}">{{t.labTitle}}</h2>
+<p style="margin: 0; font-size: 14px; line-height: 1.55">{{t.labBody}}</p>
+<div style="display: flex; flex-direction: column; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 12px">
+<sc-for list="{{t.lab}}" as="l" hint-placeholder-count="3">
+<div style="background: {{l.bg}}; padding: 12px 14px; border-radius: 12px; display: flex; flex-direction: column; gap: 4px"><span>{{l.text}}</span><span style="color: #8A2B08; font-size: 11px">{{l.meta}}</span></div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section style="padding: 0 12px 48px">
+<div style="background: #2A1209; color: #FFE3D3; border-radius: 28px; padding: 22px 18px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; gap: 14px">
+<img src="/_blob/9778ded183e5e19a11e0210746a7096c" alt="Avatar animado de Jaissel" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover; object-position: 50% 25%; border: 3px solid #F7A1BE; display: block; flex: none">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #FF9B73">&gt; ai_experiment<span style="display: block; color: #FFE3D3">JAi bot · online ●</span></div>
+</div>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 28px; line-height: 1.02; color: #FFFFFF; white-space: pre-line">{{t.chatTitle}}</h2>
+<p style="margin: 0; font-size: 14px; line-height: 1.55">{{t.chatBody}}</p>
+<div style="display: flex; gap: 8px; overflow-x: auto; margin: 0 -18px; padding: 0 18px; scrollbar-width: none">
+<sc-for list="{{chips}}" as="c" hint-placeholder-count="4">
+<button type="button" onClick="{{c.pick}}" style="flex: none; background: {{c.bg}}; color: {{c.fg}}; border: 1px solid #8A4A2E; border-radius: 999px; padding: 10px 14px; min-height: 44px; font: inherit; font-size: 13px; white-space: nowrap">{{c.q}}</button>
+</sc-for>
+</div>
+<div style="background: #3D1D10; border-radius: 18px; padding: 14px; display: flex; flex-direction: column; gap: 10px; font-size: 14px">
+<div style="align-self: flex-end; background: {{accent}}; color: #FFFFFF; padding: 10px 12px; border-radius: 14px 14px 4px 14px; max-width: 85%">{{chatQ}}</div>
+<div style="display: flex; gap: 8px; align-items: flex-end">
+<img src="/_blob/9778ded183e5e19a11e0210746a7096c" alt="" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover; object-position: 50% 25%; display: block; flex: none">
+<div style="background: #FFF4EA; color: #3A1A0E; padding: 10px 12px; border-radius: 14px 14px 14px 4px; line-height: 1.45">{{chatA}}</div>
+</div>
+<div style="display: flex; gap: 8px"><label for="chat-m" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">{{t.chatPh}}</label><input id="chat-m" type="text" placeholder="{{t.chatPh}}" style="flex: 1; min-width: 0; background: #2A1209; border: 1px solid #6B3A22; color: #FFE3D3; border-radius: 12px; padding: 12px; font: inherit; font-size: 16px"><button type="button" aria-label="Enviar" style="background: #F7A1BE; border: 0; border-radius: 12px; width: 48px; color: #4A0E24; font-size: 18px">↑</button></div>
+</div>
+</div>
+</section>
+
+<footer id="contacto" style="padding: 0 12px 28px">
+<div style="background: #FFE3D3; border-radius: 28px; padding: 30px 20px; display: flex; flex-direction: column; gap: 20px">
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 44px; line-height: 0.92; color: {{accent}}">{{t.footTitle}}<span style="display: block; font-family: 'Caveat', cursive; font-weight: 600; color: #E0457B; font-size: 38px">{{t.footScript}}</span></h2>
+<a href="mailto:jaissel92@gmail.com" style="background: {{accent}}; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 16px; padding: 18px; border-radius: 999px; text-align: center">{{t.footBtn}} →</a>
+<div style="display: flex; flex-direction: column; gap: 4px; font-family: 'JetBrains Mono', monospace; font-size: 14px">
+<a href="mailto:jaissel92@gmail.com" style="padding: 10px 0">jaissel92@gmail.com</a>
+<div style="display: flex; gap: 20px"><a href="https://linkedin.com/in/jnpm" style="padding: 10px 0">LinkedIn</a><a href="#contacto" style="padding: 10px 0">GitHub</a></div>
+</div>
+</div>
+<div style="text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8A2B08; margin-top: 18px; line-height: 1.6">LCP [x.x]s · CLS [0.0x]<span style="display: block">{{t.footNote}}</span></div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#D9430F","options":["#D9430F","#E0457B","#C2410C"]},"$preview":{"width":390,"height":5400}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { lang: 'es', q: 0, menu: false }; }
+  renderVals() {
+    var accent = this.props.accent ?? '#D9430F';
+    var es = this.state.lang === 'es';
+    var T = {
+      es: {
+        navWork: '/proyectos', navServices: '/servicios', navContact: '/contacto', cta: 'Hablemos',
+        heroTitle: 'INTEGRO,\nAUTOMATIZO\nY ESCALO', heroScript: 'tu e-commerce',
+        heroBody: 'Hola, soy Jaissel. Full stack con más de 10 años en e-commerce multipaís: conecto marketplaces, automatizo procesos con n8n e IA y hago que los sitios se encuentren en Google y en las IAs.',
+        btnWork: 'Ver proyectos', btnCv: 'Descargar CV', badge: '{ disponible\npara\nproyectos }',
+        aboutTitle: 'DEL PROBLEMA\nA PRODUCCIÓN', aboutBody: 'Trabajo de forma autónoma: defino el problema, construyo la solución y la llevo a producción. También mentoreo devs y traduzco lo que necesita el negocio en sistemas concretos.',
+        services: [
+          { n: '01', title: 'Integraciones', body: 'Marketplaces, inventario y envíos.' },
+          { n: '02', title: 'Automatización e IA', body: 'n8n, webhooks y asistentes.' },
+          { n: '03', title: 'SEO técnico y AEO', body: 'JSON-LD y sitios multilingües.' },
+          { n: '04', title: 'Apps internas', body: 'Dashboards, roles y reportes.' }
+        ],
+        workTitle: 'CASOS DE ESTUDIO', swipe: 'desliza',
+        projects: [
+          { tag: 'INTEGRACIONES', title: 'Hub de marketplaces', metric: '6', metricLabel: 'marketplaces sincronizados', body: 'Productos, inventario, precios, órdenes y reportes con Amazon, Walmart, Mercado Libre, Coppel, Liverpool y Privalia.', stack: 'Node.js · SQL Server · React' },
+          { tag: 'AUTOMATIZACIÓN', title: 'WhatsApp que se atiende solo', metric: '−4.000', metricLabel: 'ejecuciones ociosas al mes', body: 'Confirmación de órdenes y consultas de estado. Migré de webhooks a jobs programados.', stack: 'n8n · Meta Cloud API · Vue 3' },
+          { tag: 'SEO / AEO', title: 'SEO multipaís', metric: '11', metricLabel: 'sitios en varios países e idiomas', body: 'Datos estructurados, perfiles E-E-A-T y migración legacy sin perder tráfico.', stack: 'JSON-LD · Search Console · Ahrefs' },
+          { tag: 'PERFORMANCE', title: 'Caché a escala', metric: '~73K', metricLabel: 'productos con invalidación y warm-up', body: 'Resolví un cuello de botella en producción con invalidación y precalentamiento de caché.', stack: 'Node.js · Nginx · Linux' }
+        ],
+        stackTitle: 'STACK POR CAPAS',
+        stat1: 'años en\ndesarrollo', stat2: 'sitios con\nSEO y AEO', stat3: 'marketplaces\nintegrados', stat4: 'ejecuciones/mes\nahorradas',
+        labTitle: 'EN QUÉ ESTOY AHORA', labBody: 'Commits recientes, experimentos con IA y lo que estoy aprendiendo.',
+        lab: [
+          { bg: '#FFF4EA', text: '● asistentes de IA para análisis operativo', meta: '[fecha]' },
+          { bg: '#FFF4EA', text: '● contenido automatizado multi-sitio', meta: '[fecha]' },
+          { bg: '#FFE3D3', text: '◆ aprendiendo: [tema]', meta: '→' }
+        ],
+        chatTitle: 'PREGÚNTALE A\nMI PORTAFOLIO', chatBody: 'Un asistente de IA que responde sobre mi experiencia, proyectos y stack.',
+        faq: [
+          { q: '¿Has integrado marketplaces?', a: 'Sí: Amazon, Walmart, Mercado Libre, Coppel, Liverpool y Privalia, sincronizados con inventario y envíos.' },
+          { q: '¿Qué haces con IA?', a: 'Asistentes para análisis operativo y reportes automáticos, y flujos con n8n que conectan IA con WhatsApp.' },
+          { q: '¿Trabajas en inglés?', a: 'Sí. Certificado C1 y años trabajando con equipos de varios países.' },
+          { q: '¿Cómo te contacto?', a: 'Escríbeme a jaissel92@gmail.com o por LinkedIn.' }
+        ],
+        chatPh: 'Escribe tu pregunta…',
+        footTitle: '¿CONSTRUIMOS', footScript: 'algo que escale?', footBtn: 'Escríbeme', footNote: 'hecho con código, no con plantillas'
+      },
+      en: {
+        navWork: '/work', navServices: '/services', navContact: '/contact', cta: 'Let’s talk',
+        heroTitle: 'I INTEGRATE,\nAUTOMATE\nAND SCALE', heroScript: 'your e-commerce',
+        heroBody: 'Hi, I’m Jaissel. Full stack developer with 10+ years in multi-country e-commerce: I connect marketplaces, automate processes with n8n and AI, and make sites easy to find on Google and in AI answers.',
+        btnWork: 'See my work', btnCv: 'Download CV', badge: '{ open\nto\nprojects }',
+        aboutTitle: 'FROM PROBLEM\nTO PRODUCTION', aboutBody: 'I work autonomously: I define the problem, build the solution and ship it to production. I also mentor developers and turn business needs into concrete systems.',
+        services: [
+          { n: '01', title: 'Integrations', body: 'Marketplaces, inventory and shipping.' },
+          { n: '02', title: 'Automation & AI', body: 'n8n, webhooks and assistants.' },
+          { n: '03', title: 'Technical SEO & AEO', body: 'JSON-LD and multilingual sites.' },
+          { n: '04', title: 'Internal apps', body: 'Dashboards, roles and reports.' }
+        ],
+        workTitle: 'CASE STUDIES', swipe: 'swipe',
+        projects: [
+          { tag: 'INTEGRATIONS', title: 'Marketplace hub', metric: '6', metricLabel: 'marketplaces in sync', body: 'Products, inventory, pricing, orders and reports with Amazon, Walmart, Mercado Libre, Coppel, Liverpool and Privalia.', stack: 'Node.js · SQL Server · React' },
+          { tag: 'AUTOMATION', title: 'Self-running WhatsApp', metric: '−4,000', metricLabel: 'idle executions per month', body: 'Order confirmation and status inquiries. Moved from webhooks to scheduled jobs.', stack: 'n8n · Meta Cloud API · Vue 3' },
+          { tag: 'SEO / AEO', title: 'Multi-country SEO', metric: '11', metricLabel: 'sites across countries and languages', body: 'Structured data, E-E-A-T profiles and a legacy migration with no traffic loss.', stack: 'JSON-LD · Search Console · Ahrefs' },
+          { tag: 'PERFORMANCE', title: 'Caching at scale', metric: '~73K', metricLabel: 'products with invalidation and warm-up', body: 'Fixed a production bottleneck with cache invalidation and warm-up.', stack: 'Node.js · Nginx · Linux' }
+        ],
+        stackTitle: 'STACK BY LAYER',
+        stat1: 'years in\ndevelopment', stat2: 'sites with\nSEO & AEO', stat3: 'marketplaces\nintegrated', stat4: 'executions/mo\nsaved',
+        labTitle: 'WHAT I’M ON RIGHT NOW', labBody: 'Recent commits, AI experiments and what I’m learning.',
+        lab: [
+          { bg: '#FFF4EA', text: '● AI assistants for operational analysis', meta: '[date]' },
+          { bg: '#FFF4EA', text: '● automated multi-site content', meta: '[date]' },
+          { bg: '#FFE3D3', text: '◆ learning: [topic]', meta: '→' }
+        ],
+        chatTitle: 'ASK MY\nPORTFOLIO', chatBody: 'An AI assistant that answers questions about my experience, projects and stack.',
+        faq: [
+          { q: 'Have you integrated marketplaces?', a: 'Yes: Amazon, Walmart, Mercado Libre, Coppel, Liverpool and Privalia, synced with inventory and shipping.' },
+          { q: 'What do you do with AI?', a: 'Assistants for operational analysis and automated reports, plus n8n flows connecting AI to WhatsApp.' },
+          { q: 'Do you work in English?', a: 'Yes. C1 certified, with years working with teams across several countries.' },
+          { q: 'How can I reach you?', a: 'Email jaissel92@gmail.com or message me on LinkedIn.' }
+        ],
+        chatPh: 'Ask a question…',
+        footTitle: 'LET’S BUILD', footScript: 'something that scales', footBtn: 'Email me', footNote: 'built with code, not templates'
+      }
+    };
+    var layers = [
+      { name: 'front', items: ['React', 'Vue 3', 'Nuxt', 'TypeScript', 'Tailwind'] },
+      { name: 'back', items: ['Node.js', 'Express', 'SQL Server', 'MongoDB'] },
+      { name: 'automation', items: ['n8n', 'Webhooks', 'WhatsApp API', 'Claude · Gemini'] },
+      { name: 'e-commerce', items: ['Shopify', 'Liquid', 'Admin API'] },
+      { name: 'infra · seo', items: ['DigitalOcean', 'Nginx', 'PM2', 'JSON-LD'] }
+    ];
+    var t = es ? T.es : T.en;
+    var qi = this.state.q || 0;
+    var self = this;
+    var chips = t.faq.map(function (f, i) {
+      return { q: f.q, bg: i === qi ? '#F7A1BE' : 'transparent', fg: i === qi ? '#4A0E24' : '#FFE3D3', pick: function () { self.setState({ q: i }); } };
+    });
+    var menu = !!this.state.menu;
+    return {
+      accent: accent, t: t, layers: layers, chips: chips, chatQ: t.faq[qi].q, chatA: t.faq[qi].a,
+      isEs: es, isEn: !es, menuOpen: menu, menuClosed: !menu,
+      esBg: es ? accent : 'transparent', esFg: es ? '#FFFFFF' : '#8A2B08',
+      enBg: es ? 'transparent' : accent, enFg: es ? '#8A2B08' : '#FFFFFF',
+      setEs: () => this.setState({ lang: 'es' }),
+      setEn: () => this.setState({ lang: 'en' }),
+      toggleMenu: () => this.setState({ menu: !menu }),
+      closeMenu: () => this.setState({ menu: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

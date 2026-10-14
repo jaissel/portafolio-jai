@@ -1,0 +1,207 @@
+/* Tokens de diseño — mockup "Solar coral" (design/home-mockup.dc.html) */
+:root {
+  --c-bg: #fff4ea;
+  --c-surface: #ffffff;
+  --c-accent: #d9430f;
+  /* Relleno de botones con texto blanco: #d9430f da 4,41:1; este da 4,58:1 (AA) */
+  --c-accent-fill: #d4420f;
+  --c-accent-ink: #b83a0c;
+  --c-accent-deep: #8a2b08;
+  --c-accent-darker: #5a1f08;
+  --c-pink: #f7a1be;
+  --c-pink-strong: #e0457b;
+  --c-pink-ink: #6b1534;
+  --c-pink-deep: #4a0e24;
+  --c-peach: #ffd7c4;
+  --c-peach-soft: #ffe3d3;
+  --c-yellow: #ffc36b;
+  --c-yellow-ink: #6a3a00;
+  --c-yellow-deep: #4a2800;
+  --c-dark: #2a1209;
+  --c-dark-2: #3d1d10;
+  --c-dark-line: #8a4a2e;
+  --c-dark-border: #6b3a22;
+  --c-code-key: #ff9b73;
+  --c-text: #3a1a0e;
+
+  --f-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --f-body: 'DM Sans', system-ui, sans-serif;
+  --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --f-script: 'Caveat', cursive;
+
+  --r-pill: 999px;
+  --shadow-card: 0 18px 40px rgba(58, 26, 14, 0.25);
+  --container: 1200px;
+
+  /* Layout mobile-first (design/RESPONSIVE.md): base < 640 · md 640–1023 · lg ≥ 1024 */
+  --gutter: 20px; /* texto: header y hero */
+  --card-gutter: 12px; /* tarjetas grandes de cada sección */
+  --r-card: 28px;
+  --section-gap: 48px;
+}
+@media (min-width: 640px) {
+  :root {
+    --gutter: 32px;
+    --card-gutter: 24px;
+    --r-card: 32px;
+    --section-gap: 56px;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --gutter: 24px;
+    --section-gap: 72px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: var(--f-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--c-accent-ink);
+}
+a:hover {
+  color: var(--c-accent-deep);
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 3px solid var(--c-pink-strong);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.section {
+  padding-left: var(--card-gutter);
+  padding-right: var(--card-gutter);
+  padding-bottom: var(--section-gap);
+}
+
+.display {
+  margin: 0;
+  font-family: var(--f-display);
+  font-weight: 800;
+  color: var(--c-accent);
+  white-space: pre-line;
+}
+
+.script {
+  display: block;
+  font-family: var(--f-script);
+  font-weight: 600;
+  color: var(--c-pink-strong);
+  letter-spacing: 0;
+}
+
+.mono {
+  font-family: var(--f-mono);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  min-height: 44px;
+  border-radius: var(--r-pill);
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn-primary {
+  background: var(--c-accent-fill);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--c-accent-ink);
+  color: #fff;
+}
+.btn-outline {
+  border: 2px solid var(--c-text);
+  color: var(--c-text);
+}
+.btn-outline:hover {
+  background: var(--c-text);
+  color: var(--c-bg);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 10;
+  background: var(--c-dark);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 12px;
+}
+.skip-link:focus {
+  top: 16px;
+  color: #fff;
+}
+
+/* Con el header sticky, las anclas no deben quedar tapadas */
+#top,
+.section,
+#contact {
+  scroll-margin-top: 92px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
