@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import trackScript from '~/assets/track.js?raw'
+
 definePageMeta({ validate: (route) => isLocale(route.params.locale) })
 
 const route = useRoute()
@@ -15,6 +17,12 @@ useHead({
       key: 'jsonld',
       type: 'application/ld+json',
       innerHTML: JSON.stringify(buildJsonLd(c.value!, locale.value, siteUrl)),
+    },
+    // Analítica sin cookies (app/assets/track.js): inline al final del body, independiente de la hidratación
+    {
+      key: 'track',
+      innerHTML: trackScript.replace(/^\s*\/\/.*\n/gm, ''),
+      tagPosition: 'bodyClose',
     },
   ],
   link: () => [

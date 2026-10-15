@@ -4,7 +4,7 @@ const img = ABOUT_AVATAR
 </script>
 
 <template>
-  <section id="services" class="section container">
+  <section id="services" class="section container" data-track-section="section.about">
     <div class="card">
       <div class="arch">
         <picture>

@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS content (
 CREATE TABLE IF NOT EXISTS events (
   id         INTEGER PRIMARY KEY AUTOINCREMENT,
   ts         INTEGER NOT NULL,
-  type       TEXT NOT NULL,          -- 'pageview' | 'click' | 'cv_download' | 'chat_open' | 'chat_ask' | 'scroll_depth'
+  type       TEXT NOT NULL,          -- 'pageview' | 'click' | 'cv_download' | 'section_view' | 'scroll_depth' | 'chat_open' | 'chat_ask'
   target     TEXT,
   path       TEXT,
   locale     TEXT,

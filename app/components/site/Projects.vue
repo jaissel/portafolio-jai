@@ -15,7 +15,7 @@ function onScroll() {
 </script>
 
 <template>
-  <section id="work" class="section container">
+  <section id="work" class="section container" data-track-section="section.work">
     <div class="panel">
       <div class="head">
         <h2 id="work-title" class="display title">{{ projects.title }}</h2>

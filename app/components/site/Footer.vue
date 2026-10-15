@@ -13,7 +13,7 @@ const links = computed(
 </script>
 
 <template>
-  <footer id="contact" class="footer container">
+  <footer id="contact" class="footer container" data-track-section="section.contact">
     <div class="card">
       <div class="copy">
         <h2 class="display title">

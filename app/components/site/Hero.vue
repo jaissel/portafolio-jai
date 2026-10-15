@@ -4,7 +4,7 @@ const img = HERO_AVATAR
 </script>
 
 <template>
-  <section id="top" class="hero container">
+  <section id="top" class="hero container" data-track-section="section.hero">
     <div class="copy">
       <p class="chip mono">{{ hero.chip }}<span class="cursor" aria-hidden="true">_</span></p>
       <h1 class="display title">

@@ -6,7 +6,7 @@ const tones = ['peach', 'pink', 'yellow', 'white'] as const
 </script>
 
 <template>
-  <section id="stack" class="section container wrap">
+  <section id="stack" class="section container wrap" data-track-section="section.stack">
     <div class="layers-card">
       <h2 class="display title">{{ stack.title }}</h2>
       <dl class="layers mono">

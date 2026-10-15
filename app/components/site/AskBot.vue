@@ -8,16 +8,30 @@ const custom = ref<{ q: string; a: string } | null>(null)
 
 const current = computed(() => custom.value ?? props.ask.faq[selected.value])
 
+// Analítica (app/assets/track.js): solo el tipo de pregunta, nunca el texto
+const track = (type: string, target: string) =>
+  (window as unknown as { jaiTrack?: (t: string, g: string) => void }).jaiTrack?.(type, target)
+let opened = false
+function markOpen() {
+  if (opened) return
+  opened = true
+  track('chat_open', 'ask')
+}
+
 function pick(i: number) {
+  markOpen()
   selected.value = i
   custom.value = null
+  track('chat_ask', `faq.${i + 1}`)
 }
 
 function submit() {
   const q = question.value.trim()
   if (!q) return
+  markOpen()
   custom.value = { q, a: props.ui.askFallback }
   question.value = ''
+  track('chat_ask', 'free')
 }
 
 // El avatar animado solo se reproduce si el usuario no pidió reducir movimiento (si no, queda el poster)
@@ -28,7 +42,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="ask" class="section container" aria-labelledby="ask-title">
+  <section id="ask" class="section container" aria-labelledby="ask-title" data-track-section="section.ask">
     <div class="panel">
       <div class="intro">
         <div class="bot">
@@ -88,6 +102,7 @@ onMounted(() => {
               maxlength="300"
               autocomplete="off"
               :placeholder="ask.placeholder"
+              @focus="markOpen"
             />
             <button type="submit" class="send" :aria-label="ui.askSend" data-track="ask.send">↑</button>
           </form>

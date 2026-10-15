@@ -34,10 +34,9 @@ function section(c: SiteContent, locale: Locale, siteUrl: string) {
   return lines.join('\n')
 }
 
-export default defineEventHandler((event) => {
+export default defineEventHandler(async (event) => {
   const { siteUrl } = useRuntimeConfig(event).public
-  const en = getSiteContent('en')
-  const es = getSiteContent('es')
+  const [en, es] = await Promise.all([getSiteContent(event, 'en'), getSiteContent(event, 'es')])
   const contact = [`- Email: ${en.footer.email}`, ...profileLinks(en).map((url) => `- ${url}`)].join('\n')
 
   setResponseHeader(event, 'content-type', 'text/markdown; charset=utf-8')

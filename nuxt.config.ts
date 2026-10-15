@@ -50,12 +50,13 @@ export default defineNuxtConfig({
     cloudflare: { nodeCompat: true },
   },
 
-  // Caché SWR solo en producción, para no servir HTML viejo en desarrollo
+  // Caché SWR solo en producción. 60 s en la home: lo editado en el dashboard aparece en menos de un minuto
+  // (el contenido además se versiona en server/utils/content.ts)
   $production: {
     routeRules: {
-      '/es': { swr: 3600 },
-      '/en': { swr: 3600 },
-      '/llms.txt': { swr: 3600 },
+      '/es': { swr: 60 },
+      '/en': { swr: 60 },
+      '/llms.txt': { swr: 300 },
       '/sitemap.xml': { swr: 3600 },
       '/robots.txt': { swr: 86400 },
     },

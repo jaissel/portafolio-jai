@@ -88,7 +88,7 @@ CREATE TABLE content (
 CREATE TABLE events (
   id         INTEGER PRIMARY KEY AUTOINCREMENT,
   ts         INTEGER NOT NULL,
-  type       TEXT NOT NULL,          -- 'pageview' | 'click' | 'cv_download' | 'chat_open' | 'chat_ask' | 'scroll_depth'
+  type       TEXT NOT NULL,          -- 'pageview' | 'click' | 'cv_download' | 'section_view' | 'scroll_depth' | 'chat_open' | 'chat_ask'
   target     TEXT,                   -- p. ej. 'hero.cta_work', 'project.marketplace-hub', 'footer.email'
   path       TEXT,
   locale     TEXT,
@@ -160,7 +160,11 @@ Secciones en este orden, siguiendo `design/home-mockup.dc.html` (versión "Solar
 
 ---
 
-## 6. Tracking (`useTrack`)
+## 6. Tracking (`app/assets/track.js`)
+
+- Script inline mínimo (sin Vue): registra aunque la hidratación se difiera hasta después del LCP. Expone `window.jaiTrack(tipo, target)` para el chat.
+- `section_view` cuando una sección (`data-track-section`) o tarjeta de proyecto cruza el centro de la pantalla: alimenta el embudo y el heatmap.
+- `chat_ask` guarda solo `faq.N` o `free`, nunca el texto (el texto va a `chat_logs` en la Fase 5).
 
 - Atributo declarativo `data-track="hero.cta_work"` en cualquier elemento. Un listener global envía `click` con `navigator.sendBeacon('/api/track')`.
 - `pageview` en cada navegación. `scroll_depth` a 25/50/75/100 %. `cv_download` y `chat_ask` explícitos.
@@ -228,11 +232,11 @@ Login con GitHub; solo entra el usuario en `ADMIN_GITHUB_LOGIN`.
 
 **Fase 2 — SEO/AEO y performance**
 - [x] JSON-LD, sitemap, hreflang, OG, `llms.txt`
-- [x] Lighthouse ≥ 98 en móvil _(local con `wrangler pages dev`: 99 · 100 · 100 · 100, LCP 1,8 s, CLS 0; confirmar con PageSpeed Insights tras el deploy)_
+- [x] Lighthouse ≥ 98 en móvil _(producción, 14-oct-2026: 98 · 100 · 100 · 100 — LCP 1,6 s, FCP 1,5 s, SI 1,5 s, TBT 130 ms, CLS 0; desktop 100 en todo)_
 
 **Fase 3 — D1 y tracking**
-- [ ] `pnpm db:seed` carga los JSON a D1; las páginas leen de D1 con caché SWR
-- [ ] `/api/track` + `useTrack` + `data-track` en todos los CTAs
+- [x] `pnpm db:seed` carga los JSON a D1; las páginas leen de D1 con caché SWR _(contenido versionado por `MAX(updated_at)`: lo editado se ve en la siguiente petición; HTML con SWR de 60 s; si D1 falla, se usa el seed)_
+- [x] `/api/track` + script de tracking + `data-track` en todos los CTAs _(script inline `app/assets/track.js` en vez de un composable: corre antes de la hidratación diferida)_
 
 **Fase 4 — Dashboard**
 - [ ] Login GitHub con allowlist

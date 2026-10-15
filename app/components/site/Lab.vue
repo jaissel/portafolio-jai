@@ -3,7 +3,7 @@ defineProps<{ lab: SiteContent['lab']; ui: SiteContent['ui'] }>()
 </script>
 
 <template>
-  <section id="lab" class="section container">
+  <section id="lab" class="section container" data-track-section="section.lab">
     <div class="card">
       <div class="intro">
         <p class="kicker mono">{{ ui.labLive }}<span class="cursor" aria-hidden="true">_</span></p>
