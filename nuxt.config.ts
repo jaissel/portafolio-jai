@@ -17,10 +17,23 @@ export default defineNuxtConfig({
   },
 
   // Fuentes self-hosted: subsets generados por `pnpm fonts` en public/fonts (provider local).
-  // Solo se precargan las del primer render (titular y texto); mono y script cargan con swap.
+  // Se precargan las 4: todas aparecen en el primer render (titular, texto, chip mono y script).
   fonts: {
     processCSSVariables: true,
-    defaults: { subsets: ['latin'], styles: ['normal'] },
+    // Sin src: local(): buscar fuentes instaladas en el sistema retrasaba el primer pintado en perfiles nuevos
+    experimental: { disableLocalFallbacks: true },
+    defaults: {
+      subsets: ['latin'],
+      styles: ['normal'],
+      // Métricas de fallback solo para fuentes que existen: Arial (Windows/macOS) y Roboto (Android)
+      fallbacks: {
+        'sans-serif': ['Arial', 'Roboto'],
+        'system-ui': ['Arial', 'Roboto'],
+        monospace: ['Courier New', 'Roboto Mono'],
+        'ui-monospace': ['Courier New', 'Roboto Mono'],
+        cursive: ['Arial', 'Roboto'],
+      },
+    },
     families: [
       { name: 'Bricolage Grotesque', weights: [800], provider: 'local' },
       { name: 'DM Sans', weights: [400, 500, 700], provider: 'local' },

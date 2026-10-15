@@ -88,14 +88,9 @@ const img = HERO_AVATAR
   border-radius: 8px;
   align-self: flex-start;
 }
+/* Cursor estático, como en el mockup: un parpadeo infinito repinta la pantalla cada 550 ms */
 .cursor {
   color: var(--c-pink-strong);
-  animation: blink 1.1s steps(2, start) infinite;
-}
-@keyframes blink {
-  to {
-    visibility: hidden;
-  }
 }
 /* Tamaños del mockup como máximo; fluidos para que la línea más larga quepa en 360 px y en tablet angosto */
 .title {
