@@ -70,7 +70,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     // NUXT_PUBLIC_SITE_URL en Cloudflare; canonical y hreflang siempre absolutos
-    public: { siteUrl: 'https://jaissel.pages.dev' },
+    public: { siteUrl: 'https://jaissel.is-a.dev' },
   },
 
   typescript: { strict: true },

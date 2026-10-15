@@ -4,8 +4,8 @@ compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "dist"
 
 [vars]
-# URL pública para canonical, hreflang, sitemap y OG. Cambiar cuando esté el dominio .dev
-NUXT_PUBLIC_SITE_URL = "https://jaissel.pages.dev"
+# URL pública para canonical, hreflang, sitemap y OG
+NUXT_PUBLIC_SITE_URL = "https://jaissel.is-a.dev"
 
 [[d1_databases]]
 binding = "DB"

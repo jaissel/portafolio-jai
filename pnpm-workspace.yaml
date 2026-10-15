@@ -1,3 +1,13 @@
+# pnpm 10 (JS puro): pnpm 11+ es un .exe nativo sin firmar que Smart App Control de Windows bloquea.
+# Dependencias con scripts de build permitidos (pnpm 10 usa onlyBuiltDependencies; allowBuilds es la clave de pnpm 11+).
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
+  - workerd
+  - '@parcel/watcher'
+  - vue-demi
+  - unrs-resolver
+
 allowBuilds:
   esbuild: true
   sharp: true
