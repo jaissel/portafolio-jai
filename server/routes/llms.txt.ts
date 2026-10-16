@@ -21,6 +21,16 @@ function section(c: SiteContent, locale: Locale, siteUrl: string) {
         `- **${p.title}** (${p.tag}) — ${p.metric} ${p.metricLabel}. ${p.body} Stack: ${p.stack.join(', ')}.`,
     ),
     '',
+    `### ${oneLine(c.sites.title)}`,
+    '',
+    ...c.sites.items.map((s) => {
+      const markets = s.markets?.length
+        ? ` (${s.markets.map((m) => `[${m.label}](${m.url})`).join(', ')})`
+        : ''
+      return `- [${s.name}](${s.url})${markets} — ${s.tag}. ${s.body}`
+    }),
+    ...c.sites.more.items.map((s) => `- [${s.name}](${s.url}) — ${s.tag}. ${s.body}`),
+    '',
     `### ${oneLine(c.stack.title)}`,
     '',
     ...c.stack.layers.map((l) => `- ${l.name}: ${l.items.join(', ')}`),

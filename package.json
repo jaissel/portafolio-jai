@@ -8,7 +8,7 @@
     "build": "nuxt build",
     "preview": "wrangler pages dev dist",
     "postinstall": "nuxt prepare",
-    "assets": "node scripts/build-avatars.mjs && node scripts/build-fonts.mjs && node scripts/build-og.mjs",
+    "assets": "node scripts/build-avatars.mjs && node scripts/build-sites.mjs && node scripts/build-fonts.mjs && node scripts/build-og.mjs",
     "db:migrate": "wrangler d1 migrations apply jai-portfolio --local",
     "db:migrate:remote": "wrangler d1 migrations apply jai-portfolio --remote",
     "db:seed": "node scripts/seed.mjs --local",
@@ -19,7 +19,8 @@
     "format": "prettier --write .",
     "typecheck": "nuxt typecheck",
     "og": "node scripts/build-og.mjs",
-    "fonts": "node scripts/build-fonts.mjs"
+    "fonts": "node scripts/build-fonts.mjs",
+    "sites": "node scripts/build-sites.mjs"
   },
   "dependencies": {
     "@nuxt/fonts": "^1.0.1",

@@ -50,7 +50,8 @@
         "metric": "6",
         "metricLabel": "marketplaces in sync",
         "body": "Products, inventory, pricing, orders and sales reports with Amazon, Walmart, Mercado Libre, Coppel, Liverpool and Privalia, connected to SkuVault (inventory) and ShipStation (shipping).",
-        "stack": ["Node.js", "SQL Server", "React"]
+        "stack": ["Node.js", "SQL Server", "React"],
+        "featured": true
       },
       {
         "slug": "whatsapp-automation",
@@ -59,7 +60,8 @@
         "metric": "−4,000",
         "metricLabel": "idle executions per month",
         "body": "Order confirmation, first contact and status inquiries with full traceability. Redesigned the architecture from webhooks to scheduled jobs.",
-        "stack": ["n8n", "Meta Cloud API", "Vue 3", "MongoDB"]
+        "stack": ["n8n", "Meta Cloud API", "Vue 3", "MongoDB"],
+        "featured": true
       },
       {
         "slug": "multi-country-seo",
@@ -68,7 +70,8 @@
         "metric": "11",
         "metricLabel": "sites across countries and languages",
         "body": "Audits, JSON-LD structured data, E-E-A-T author profiles, keyword clusters and a legacy migration with no traffic loss.",
-        "stack": ["JSON-LD", "Search Console", "Ahrefs"]
+        "stack": ["JSON-LD", "Search Console", "Ahrefs"],
+        "featured": true
       },
       {
         "slug": "cache-at-scale",
@@ -78,8 +81,87 @@
         "metricLabel": "products with invalidation and warm-up",
         "body": "Fixed a production bottleneck with automatic cache invalidation and warm-up.",
         "stack": ["Node.js", "Nginx", "Linux"]
+      },
+      {
+        "slug": "spin-to-win",
+        "tag": "SHOPIFY · CAMPAIGNS",
+        "title": "End-to-end spin-to-win coupons",
+        "metric": "66",
+        "metricLabel": "discrepancies found and fixed",
+        "body": "“Spin & Win” wheel on Shopify, a role-based admin panel and auto-generated personalized coupons. Reconciling issued coupons against real orders found and fixed 66 discrepancies.",
+        "stack": ["Shopify", "Node.js", "Express", "MongoDB", "Vue 3"]
       }
     ]
+  },
+  "sites": {
+    "title": "LIVE SITES",
+    "body": "Live Shopify stores where you can see my work.",
+    "linkLabel": "Visit site",
+    "marketsLabel": "Other markets:",
+    "cta": "More case studies & live sites",
+    "seoTitle": "Case studies & live sites · Jaissel Pérez",
+    "seoDescription": "All my case studies (integrations, automation, SEO, Shopify and performance) and the live Shopify stores I worked on.",
+    "items": [
+      {
+        "slug": "fajasalome",
+        "name": "Fajas Salomé",
+        "url": "https://fajasalome.co/",
+        "tag": "SHOPIFY · CO · US · CL",
+        "body": "“Spin & Win” wheel with an admin panel and personalized coupons, technical SEO, custom sections, 60% of the rebrand and the blog, powered by my automated content system.",
+        "imageAlt": "“Spin & Win” wheel on the Fajas Salomé store",
+        "markets": [
+          {
+            "label": "US",
+            "url": "https://fajassalome.us/"
+          },
+          {
+            "label": "CL",
+            "url": "https://www.fajassalome.cl/"
+          }
+        ]
+      },
+      {
+        "slug": "beshapy",
+        "name": "Beshapy",
+        "url": "https://beshapy.com/",
+        "tag": "SHOPIFY · REBRAND",
+        "body": "The whole site: rebrand, responsive design, 100% of the SEO and the blog, powered by my automated content system.",
+        "imageAlt": "Recovery kit section on the Beshapy store"
+      },
+      {
+        "slug": "sonryse",
+        "name": "Sonryse",
+        "url": "https://sonryse.com/",
+        "tag": "SHOPIFY · REBRAND",
+        "body": "Rebrand and SEO for the store.",
+        "imageAlt": "Sonryse store homepage"
+      },
+      {
+        "slug": "shapessecrets",
+        "name": "Shapes Secrets",
+        "url": "https://shapessecrets.com/",
+        "tag": "SHOPIFY · REBRAND",
+        "body": "Rebrand and SEO for the store.",
+        "imageAlt": "Shapes Secrets store homepage"
+      }
+    ],
+    "more": {
+      "title": "Also SEO",
+      "items": [
+        {
+          "name": "Snatched Body",
+          "url": "https://www.snatched-body.com/",
+          "tag": "TECHNICAL SEO",
+          "body": "Fixed technical SEO issues."
+        },
+        {
+          "name": "Cata1og",
+          "url": "https://cata1og.com/",
+          "tag": "SEO",
+          "body": "SEO audits."
+        }
+      ]
+    }
   },
   "stack": {
     "title": "STACK BY LAYER",
@@ -203,6 +285,8 @@
     "socialLabel": "Contact and social",
     "menuOpen": "Open menu",
     "menuClose": "Close menu",
-    "swipe": "swipe"
+    "swipe": "swipe",
+    "back": "Back to portfolio",
+    "newTab": "(opens in a new tab)"
   }
 }

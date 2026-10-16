@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ label: string; locale: Locale }>()
+withDefaults(defineProps<{ label: string; locale: Locale; path?: string }>(), { path: '' })
 </script>
 
 <template>
@@ -7,7 +7,7 @@ defineProps<{ label: string; locale: Locale }>()
     <a
       v-for="l in LOCALES"
       :key="l"
-      :href="`/${l}`"
+      :href="`/${l}${path}`"
       :hreflang="l"
       :lang="l"
       :aria-current="l === locale ? 'page' : undefined"

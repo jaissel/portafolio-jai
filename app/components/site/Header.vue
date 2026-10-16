@@ -1,15 +1,26 @@
 <script setup lang="ts">
-const props = defineProps<{ nav: SiteContent['nav']; ui: SiteContent['ui']; locale: Locale }>()
+const props = withDefaults(
+  defineProps<{
+    nav: SiteContent['nav']
+    ui: SiteContent['ui']
+    locale: Locale
+    /** Ruta de la página actual después del idioma ('' en la home, '/sites' en sitios) */
+    path?: string
+  }>(),
+  { path: '' },
+)
+// En otras páginas, las anclas vuelven a las secciones de la home
+const home = computed(() => (props.path ? `/${props.locale}` : ''))
 const logo = computed(() => {
   const [name = '', ...rest] = props.ui.logo.split('.')
   return { name, tld: rest.join('.') }
 })
 
 const links = computed(() => [
-  { href: '#work', label: props.nav.work, track: 'nav.work' },
-  { href: '#services', label: props.nav.services, track: 'nav.services' },
-  { href: '#stack', label: props.nav.stack, track: 'nav.stack' },
-  { href: '#contact', label: props.nav.contact, track: 'nav.contact' },
+  { href: `${home.value}#work`, label: props.nav.work, track: 'nav.work' },
+  { href: `${home.value}#services`, label: props.nav.services, track: 'nav.services' },
+  { href: `${home.value}#stack`, label: props.nav.stack, track: 'nav.stack' },
+  { href: `${home.value}#contact`, label: props.nav.contact, track: 'nav.contact' },
 ])
 
 // Menú hamburguesa (< 1024 px)
@@ -33,20 +44,20 @@ onBeforeUnmount(() => {
 <template>
   <header class="header" :class="{ open }">
     <div class="bar container">
-      <a href="#top" class="logo" data-track="header.logo" @click="close">
+      <a :href="`${home}#top`" class="logo" data-track="header.logo" @click="close">
         {{ logo.name }}<span class="dot">.</span>{{ logo.tld }}
       </a>
       <nav id="site-nav" :aria-label="ui.navLabel" class="nav">
         <a v-for="l in links" :key="l.href" :href="l.href" :data-track="l.track" @click="close">{{
           l.label
         }}</a>
-        <a href="#contact" class="btn btn-primary cta-menu" data-track="header.cta" @click="close"
+        <a :href="`${home}#contact`" class="btn btn-primary cta-menu" data-track="header.cta" @click="close"
           >{{ nav.cta }} →</a
         >
       </nav>
       <div class="actions">
-        <SiteLangSwitch :label="ui.langLabel" :locale="locale" />
-        <a href="#contact" class="btn btn-primary cta" data-track="header.cta">{{ nav.cta }} →</a>
+        <SiteLangSwitch :label="ui.langLabel" :locale="locale" :path="path" />
+        <a :href="`${home}#contact`" class="btn btn-primary cta" data-track="header.cta">{{ nav.cta }} →</a>
         <button
           type="button"
           class="burger"

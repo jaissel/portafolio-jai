@@ -50,7 +50,8 @@
         "metric": "6",
         "metricLabel": "marketplaces sincronizados",
         "body": "Productos, inventario, precios, órdenes y reportes de ventas con Amazon, Walmart, Mercado Libre, Coppel, Liverpool y Privalia, conectados a SkuVault (inventario) y ShipStation (envíos).",
-        "stack": ["Node.js", "SQL Server", "React"]
+        "stack": ["Node.js", "SQL Server", "React"],
+        "featured": true
       },
       {
         "slug": "whatsapp-automation",
@@ -59,7 +60,8 @@
         "metric": "−4.000",
         "metricLabel": "ejecuciones ociosas al mes",
         "body": "Confirmación de órdenes, primer contacto y consultas de estado con trazabilidad total. Rediseñé la arquitectura de webhooks a jobs programados.",
-        "stack": ["n8n", "Meta Cloud API", "Vue 3", "MongoDB"]
+        "stack": ["n8n", "Meta Cloud API", "Vue 3", "MongoDB"],
+        "featured": true
       },
       {
         "slug": "multi-country-seo",
@@ -68,7 +70,8 @@
         "metric": "11",
         "metricLabel": "sitios en varios países e idiomas",
         "body": "Auditorías, datos estructurados JSON-LD, perfiles E-E-A-T, clusters de keywords y migración de un sitio legacy sin perder tráfico.",
-        "stack": ["JSON-LD", "Search Console", "Ahrefs"]
+        "stack": ["JSON-LD", "Search Console", "Ahrefs"],
+        "featured": true
       },
       {
         "slug": "cache-at-scale",
@@ -78,8 +81,87 @@
         "metricLabel": "productos con invalidación y warm-up",
         "body": "Resolví un cuello de botella en producción con invalidación automática y precalentamiento de caché.",
         "stack": ["Node.js", "Nginx", "Linux"]
+      },
+      {
+        "slug": "spin-to-win",
+        "tag": "SHOPIFY · CAMPAÑAS",
+        "title": "Ruleta de cupones de punta a punta",
+        "metric": "66",
+        "metricLabel": "discrepancias detectadas y resueltas",
+        "body": "Ruleta «Gira y Gana» en Shopify, panel de control con roles y cupones personalizados generados automáticamente. La conciliación entre cupones emitidos y órdenes reales detectó y resolvió 66 discrepancias.",
+        "stack": ["Shopify", "Node.js", "Express", "MongoDB", "Vue 3"]
       }
     ]
+  },
+  "sites": {
+    "title": "SITIOS EN PRODUCCIÓN",
+    "body": "Tiendas Shopify en vivo donde se ve mi trabajo.",
+    "linkLabel": "Ver sitio",
+    "marketsLabel": "Otros mercados:",
+    "cta": "Ver más casos y sitios en producción",
+    "seoTitle": "Casos de estudio y sitios en producción · Jaissel Pérez",
+    "seoDescription": "Todos mis casos de estudio (integraciones, automatización, SEO, Shopify y performance) y las tiendas Shopify en vivo en las que trabajé.",
+    "items": [
+      {
+        "slug": "fajasalome",
+        "name": "Fajas Salomé",
+        "url": "https://fajasalome.co/",
+        "tag": "SHOPIFY · CO · US · CL",
+        "body": "Ruleta «Gira y Gana» con panel de control y cupones personalizados, SEO técnico, secciones a medida, el 60 % del rebranding y el blog con mi sistema de contenido automatizado.",
+        "imageAlt": "Ruleta «Gira y Gana» en la tienda de Fajas Salomé",
+        "markets": [
+          {
+            "label": "US",
+            "url": "https://fajassalome.us/"
+          },
+          {
+            "label": "CL",
+            "url": "https://www.fajassalome.cl/"
+          }
+        ]
+      },
+      {
+        "slug": "beshapy",
+        "name": "Beshapy",
+        "url": "https://beshapy.com/",
+        "tag": "SHOPIFY · REBRANDING",
+        "body": "El sitio completo: rebranding, diseño responsive, el 100 % del SEO y el blog con mi sistema de contenido automatizado.",
+        "imageAlt": "Sección del kit de recuperación en la tienda de Beshapy"
+      },
+      {
+        "slug": "sonryse",
+        "name": "Sonryse",
+        "url": "https://sonryse.com/",
+        "tag": "SHOPIFY · REBRANDING",
+        "body": "Rebranding y SEO de la tienda.",
+        "imageAlt": "Portada de la tienda de Sonryse"
+      },
+      {
+        "slug": "shapessecrets",
+        "name": "Shapes Secrets",
+        "url": "https://shapessecrets.com/",
+        "tag": "SHOPIFY · REBRANDING",
+        "body": "Rebranding y SEO de la tienda.",
+        "imageAlt": "Portada de la tienda de Shapes Secrets"
+      }
+    ],
+    "more": {
+      "title": "También en SEO",
+      "items": [
+        {
+          "name": "Snatched Body",
+          "url": "https://www.snatched-body.com/",
+          "tag": "SEO TÉCNICO",
+          "body": "Corrección de problemas técnicos de SEO."
+        },
+        {
+          "name": "Cata1og",
+          "url": "https://cata1og.com/",
+          "tag": "SEO",
+          "body": "Auditorías SEO."
+        }
+      ]
+    }
   },
   "stack": {
     "title": "STACK POR CAPAS",
@@ -203,6 +285,8 @@
     "socialLabel": "Contacto y redes",
     "menuOpen": "Abrir menú",
     "menuClose": "Cerrar menú",
-    "swipe": "desliza"
+    "swipe": "desliza",
+    "back": "Volver al portafolio",
+    "newTab": "(se abre en una pestaña nueva)"
   }
 }

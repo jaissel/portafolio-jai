@@ -1,5 +1,23 @@
 <script setup lang="ts">
-const props = defineProps<{ projects: SiteContent['projects']; ui: SiteContent['ui'] }>()
+const props = withDefaults(
+  defineProps<{
+    projects: SiteContent['projects']
+    sites: SiteContent['sites']
+    ui: SiteContent['ui']
+    locale: Locale
+    /** 'featured' (home: destacados + botón a la página) o 'all' (página /sites: todos, sin botón) */
+    mode?: 'featured' | 'all'
+    heading?: 'h1' | 'h2'
+  }>(),
+  { mode: 'featured', heading: 'h2' },
+)
+
+// En la home solo los destacados; si ninguno está marcado, todos
+const items = computed(() => {
+  if (props.mode === 'all') return props.projects.items
+  const featured = props.projects.items.filter((p) => p.featured)
+  return featured.length ? featured : props.projects.items
+})
 
 // Carrusel en móvil: los dots siguen la tarjeta visible (en md/lg el carrusel es un grid y no hay dots)
 const track = ref<HTMLElement | null>(null)
@@ -10,7 +28,7 @@ function onScroll() {
   if (!el || !first) return
   const step = first.offsetWidth + parseFloat(getComputedStyle(el).columnGap || '0')
   const max = el.scrollWidth - el.clientWidth
-  active.value = el.scrollLeft >= max - 4 ? props.projects.items.length - 1 : Math.round(el.scrollLeft / step)
+  active.value = el.scrollLeft >= max - 4 ? items.value.length - 1 : Math.round(el.scrollLeft / step)
 }
 </script>
 
@@ -18,7 +36,7 @@ function onScroll() {
   <section id="work" class="section container" data-track-section="section.work">
     <div class="panel">
       <div class="head">
-        <h2 id="work-title" class="display title">{{ projects.title }}</h2>
+        <component :is="heading" id="work-title" class="display title">{{ projects.title }}</component>
         <span class="hint mono" aria-hidden="true">{{ ui.swipe }} →</span>
       </div>
       <!-- tabindex: el carrusel tiene scroll propio y debe poder recorrerse con teclado -->
@@ -30,7 +48,7 @@ function onScroll() {
         aria-labelledby="work-title"
         @scroll.passive="onScroll"
       >
-        <li v-for="p in projects.items" :key="p.slug">
+        <li v-for="p in items" :key="p.slug">
           <article :id="`project-${p.slug}`" class="project" :data-track-section="`project.${p.slug}`">
             <p class="tag mono">{{ p.tag }}</p>
             <h3 class="display name">{{ p.title }}</h3>
@@ -44,8 +62,18 @@ function onScroll() {
         </li>
       </ul>
       <div class="dots" aria-hidden="true">
-        <span v-for="(p, i) in projects.items" :key="p.slug" :class="{ on: i === active }" />
+        <span v-for="(p, i) in items" :key="p.slug" :class="{ on: i === active }" />
       </div>
+      <!-- Más casos y sitios en producción: página aparte que se abre en otra pestaña (no alarga la home) -->
+      <a
+        v-if="mode === 'featured'"
+        :href="`/${locale}/sites`"
+        class="btn live"
+        target="_blank"
+        rel="noopener"
+        data-track="work.live_sites"
+        >{{ sites.cta }} <span aria-hidden="true">↗</span><span class="sr-only"> {{ ui.newTab }}</span></a
+      >
     </div>
   </section>
 </template>
@@ -165,6 +193,20 @@ function onScroll() {
   width: 18px;
   background: #fff;
 }
+.live {
+  margin: 4px 20px 0;
+  padding: 14px 22px;
+  background: #fff;
+  color: var(--c-accent-deep);
+  font-size: 15px;
+}
+.live:hover {
+  background: var(--c-peach-soft);
+  color: var(--c-accent-darker);
+}
+.live:focus-visible {
+  outline-color: #fff;
+}
 
 /* md: grid 2×2 */
 @media (min-width: 640px) {
@@ -183,12 +225,20 @@ function onScroll() {
   .dots {
     display: none;
   }
+  .live {
+    margin: 0;
+    align-self: flex-start;
+  }
   .track {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
     padding: 0;
     overflow: visible;
+  }
+  /* Con un número impar de casos, el último ocupa todo el ancho */
+  .track li:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
   }
   .project {
     border-radius: 22px;
@@ -234,6 +284,19 @@ function onScroll() {
   .track {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 18px;
+  }
+  .track li:last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+  /* 5 casos: 3 arriba y 2 abajo más anchos (grid de 6 columnas), sin tarjeta suelta */
+  .track:has(> li:nth-child(5):last-child) {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .track:has(> li:nth-child(5):last-child) > li {
+    grid-column: span 2;
+  }
+  .track:has(> li:nth-child(5):last-child) > li:nth-child(n + 4) {
+    grid-column: span 3;
   }
   .project {
     padding: 22px;

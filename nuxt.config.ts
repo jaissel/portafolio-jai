@@ -56,6 +56,8 @@ export default defineNuxtConfig({
     routeRules: {
       '/es': { swr: 60 },
       '/en': { swr: 60 },
+      '/es/sites': { swr: 60 },
+      '/en/sites': { swr: 60 },
       '/llms.txt': { swr: 300 },
       '/sitemap.xml': { swr: 3600 },
       '/robots.txt': { swr: 86400 },

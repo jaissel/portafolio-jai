@@ -130,7 +130,8 @@ Secciones en este orden, siguiendo `design/home-mockup.dc.html` (versión "Solar
 1. **Header:** logo `jai.dev`, nav, switch ES/EN y CTA "Hablemos".
 2. **Hero:** chip tipo terminal, titular, CTAs (proyectos y descargar CV), arco con `avatar-code`, tarjeta de código flotante y badge "disponible".
 3. **Sobre mí y servicios:** arco rosa con `avatar-peace`, texto y 4 servicios.
-4. **Casos de estudio:** 4 tarjetas con métrica grande, descripción y stack.
+4. **Casos de estudio:** los destacados (`featured`, hoy 3) con métrica grande, descripción y stack; carrusel en móvil. Botón "Ver más casos y sitios en producción ↗" que abre `/[locale]/sites` en otra pestaña.
+4b. **Página `/[locale]/sites` (fuera de la home):** todos los casos de estudio (3 + 2 en desktop) y sitios en producción: tiendas Shopify con captura (`design/sites/*.png` → `pnpm sites`), aporte y link; otros mercados de la misma marca; lista compacta "También en SEO" para trabajo sin captura.
 5. **Stack por capas y números.**
 6. **/lab · live:** commits recientes desde GitHub y "aprendiendo ahora", editable.
 7. **AI experiment, "Pregúntale a mi portafolio":** GIF del avatar como ícono, chips de preguntas sugeridas e input libre.
@@ -220,7 +221,7 @@ Login con GitHub; solo entra el usuario en `ADMIN_GITHUB_LOGIN`.
 **Fase 0 — Setup**
 - [x] Repo con Nuxt 4 + TS, pnpm, ESLint y Prettier
 - [x] `wrangler.toml` con binding D1 `DB`; `schema.sql` y migraciones
-- [ ] Deploy vacío a Cloudflare Pages funcionando _(build listo y probado con `wrangler pages dev`; falta crear la cuenta/proyecto y la D1 remota)_
+- [x] Deploy a Cloudflare Pages funcionando _(proyecto `jaissel` conectado al repo; D1 remota migrada y con seed)_
 
 **Fase 1 — Sitio estático bilingüe**
 - [x] Tokens CSS y fuentes
@@ -250,7 +251,7 @@ Login con GitHub; solo entra el usuario en `ADMIN_GITHUB_LOGIN`.
 
 **Fase 6 — Lanzamiento**
 - [ ] `/api/lab` con commits de GitHub (caché 1 h)
-- [ ] Subdominio `jaissel.is-a.dev`
+- [x] Subdominio `jaissel.is-a.dev` _(is-a-dev/register#56627; dominio agregado a Pages por API)_
 - [ ] Web Vitals reales en el footer
 - [ ] README del repo como caso de estudio (arquitectura y decisiones)
 

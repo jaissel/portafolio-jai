@@ -25,7 +25,32 @@ export interface SiteContent {
       metricLabel: string
       body: string
       stack: string[]
+      /** Destacado: aparece en la home. Todos aparecen en /[locale]/sites */
+      featured?: boolean
     }[]
+  }
+  sites: {
+    title: string
+    body: string
+    linkLabel: string
+    marketsLabel: string
+    /** Botón en Casos de estudio que abre /[locale]/sites en otra pestaña */
+    cta: string
+    seoTitle: string
+    seoDescription: string
+    /** Captura en public/sites/<slug>-{480,800}.{avif,webp} (pnpm sites) */
+    items: {
+      slug: string
+      name: string
+      url: string
+      tag: string
+      body: string
+      imageAlt: string
+      /** Otras tiendas de la misma marca (p. ej. por país) */
+      markets?: { label: string; url: string }[]
+    }[]
+    /** Trabajo sin captura (SEO): lista compacta */
+    more: { title: string; items: { name: string; url: string; tag: string; body: string }[] }
   }
   stack: { title: string; layers: { name: string; items: string[] }[] }
   stats: { value: string; label: string }[]
@@ -58,6 +83,8 @@ export interface SiteContent {
     menuOpen: string
     menuClose: string
     swipe: string
+    back: string
+    newTab: string
     langLabel: string
     labLive: string
     learning: string
