@@ -16,9 +16,10 @@ const logo = computed(() => {
   return { name, tld: rest.join('.') }
 })
 
+// En el mismo orden que las secciones de la página, para que el menú no salte arriba y abajo
 const links = computed(() => [
-  { href: `${home.value}#work`, label: props.nav.work, track: 'nav.work' },
   { href: `${home.value}#services`, label: props.nav.services, track: 'nav.services' },
+  { href: `${home.value}#work`, label: props.nav.work, track: 'nav.work' },
   { href: `${home.value}#stack`, label: props.nav.stack, track: 'nav.stack' },
   { href: `${home.value}#contact`, label: props.nav.contact, track: 'nav.contact' },
 ])

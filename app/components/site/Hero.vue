@@ -145,7 +145,10 @@ const img = HERO_AVATAR
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 230px;
+  /* Anchos del mockup como mínimo; crece si el contenido es más largo (p. ej. «loves») */
+  width: max-content;
+  min-width: 230px;
+  max-width: 100%;
   background: var(--c-dark);
   color: var(--c-peach-soft);
   border-radius: 14px;
@@ -256,7 +259,7 @@ const img = HERO_AVATAR
   .code {
     left: -16px;
     bottom: -20px;
-    width: 250px;
+    min-width: 250px;
     padding: 14px 16px;
     font-size: 12px;
   }
@@ -336,7 +339,7 @@ const img = HERO_AVATAR
   .code {
     left: 0;
     bottom: 40px;
-    width: 310px;
+    min-width: 310px;
     padding: 18px 20px;
     font-size: 13px;
     line-height: 1.7;
