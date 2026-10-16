@@ -54,7 +54,10 @@ const img = HERO_AVATAR
           >],
         </div>
         <div class="in">
-          loves: <span class="str">'{{ hero.codeCard.loves }}'</span>
+          loves: [<template v-for="(s, i) in hero.codeCard.loves" :key="s"
+            ><span class="str">'{{ s }}'</span
+            ><template v-if="i < hero.codeCard.loves.length - 1">, </template></template
+          >]
         </div>
         <div>}</div>
       </div>

@@ -11,7 +11,7 @@ export interface SiteContent {
     cvUrl: string
     badge: string
     avatarAlt: string
-    codeCard: { role: string; years: number; stack: string[]; loves: string }
+    codeCard: { role: string; years: number; stack: string[]; loves: string[] }
   }
   about: { title: string; body: string; signature: string; avatarAlt: string }
   services: { title: string; body: string }[]

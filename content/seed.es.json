@@ -1,6 +1,6 @@
 {
   "hero": {
-    "chip": "> senior full stack · e-commerce · AI automation · SEO/AEO",
+    "chip": "> Senior Full Stack · E-commerce · AI Automation · SEO/AEO",
     "title": "INTEGRO,\nAUTOMATIZO\nY ESCALO",
     "script": "tu e-commerce",
     "body": "Hola, soy Jaissel. Full stack con más de 10 años en e-commerce multipaís: conecto marketplaces, automatizo procesos con n8n e IA y hago que los sitios se encuentren en Google y en las IAs.",
@@ -11,8 +11,17 @@
     "codeCard": {
       "role": "senior full stack",
       "years": 10,
-      "stack": ["React", "Vue", "Node"],
-      "loves": "eat, sleep, code, repeat"
+      "stack": [
+        "React",
+        "Vue",
+        "Node"
+      ],
+      "loves": [
+        "eat",
+        "sleep",
+        "code",
+        "repeat"
+      ]
     },
     "cvUrl": "/cv/Jaissel-Perez-CV-ES.pdf"
   },
@@ -50,7 +59,11 @@
         "metric": "6",
         "metricLabel": "marketplaces sincronizados",
         "body": "Productos, inventario, precios, órdenes y reportes de ventas con Amazon, Walmart, Mercado Libre, Coppel, Liverpool y Privalia, conectados a SkuVault (inventario) y ShipStation (envíos).",
-        "stack": ["Node.js", "SQL Server", "React"],
+        "stack": [
+          "Node.js",
+          "SQL Server",
+          "React"
+        ],
         "featured": true
       },
       {
@@ -60,7 +73,12 @@
         "metric": "−4.000",
         "metricLabel": "ejecuciones ociosas al mes",
         "body": "Confirmación de órdenes, primer contacto y consultas de estado con trazabilidad total. Rediseñé la arquitectura de webhooks a jobs programados.",
-        "stack": ["n8n", "Meta Cloud API", "Vue 3", "MongoDB"],
+        "stack": [
+          "n8n",
+          "Meta Cloud API",
+          "Vue 3",
+          "MongoDB"
+        ],
         "featured": true
       },
       {
@@ -70,7 +88,11 @@
         "metric": "11",
         "metricLabel": "sitios en varios países e idiomas",
         "body": "Auditorías, datos estructurados JSON-LD, perfiles E-E-A-T, clusters de keywords y migración de un sitio legacy sin perder tráfico.",
-        "stack": ["JSON-LD", "Search Console", "Ahrefs"],
+        "stack": [
+          "JSON-LD",
+          "Search Console",
+          "Ahrefs"
+        ],
         "featured": true
       },
       {
@@ -80,7 +102,11 @@
         "metric": "~73K",
         "metricLabel": "productos con invalidación y warm-up",
         "body": "Resolví un cuello de botella en producción con invalidación automática y precalentamiento de caché.",
-        "stack": ["Node.js", "Nginx", "Linux"]
+        "stack": [
+          "Node.js",
+          "Nginx",
+          "Linux"
+        ]
       },
       {
         "slug": "spin-to-win",
@@ -89,7 +115,13 @@
         "metric": "66",
         "metricLabel": "discrepancias detectadas y resueltas",
         "body": "Ruleta «Gira y Gana» en Shopify, panel de control con roles y cupones personalizados generados automáticamente. La conciliación entre cupones emitidos y órdenes reales detectó y resolvió 66 discrepancias.",
-        "stack": ["Shopify", "Node.js", "Express", "MongoDB", "Vue 3"]
+        "stack": [
+          "Shopify",
+          "Node.js",
+          "Express",
+          "MongoDB",
+          "Vue 3"
+        ]
       }
     ]
   },
@@ -168,23 +200,48 @@
     "layers": [
       {
         "name": "front",
-        "items": ["React", "Vue 3", "Nuxt", "TypeScript", "Tailwind"]
+        "items": [
+          "React",
+          "Vue 3",
+          "Nuxt",
+          "TypeScript",
+          "Tailwind"
+        ]
       },
       {
         "name": "back",
-        "items": ["Node.js", "Express", "SQL Server", "MongoDB"]
+        "items": [
+          "Node.js",
+          "Express",
+          "SQL Server",
+          "MongoDB"
+        ]
       },
       {
         "name": "automation",
-        "items": ["n8n", "Webhooks", "WhatsApp API", "Claude · Gemini"]
+        "items": [
+          "n8n",
+          "Webhooks",
+          "WhatsApp API",
+          "Claude · Gemini"
+        ]
       },
       {
         "name": "e-commerce",
-        "items": ["Shopify", "Liquid", "Admin API"]
+        "items": [
+          "Shopify",
+          "Liquid",
+          "Admin API"
+        ]
       },
       {
         "name": "infra · seo",
-        "items": ["DigitalOcean", "Nginx", "PM2", "JSON-LD"]
+        "items": [
+          "DigitalOcean",
+          "Nginx",
+          "PM2",
+          "JSON-LD"
+        ]
       }
     ]
   },
