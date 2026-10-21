@@ -18,6 +18,11 @@ export interface D1Database {
 interface CloudflareEnv {
   DB?: D1Database
   HASH_SALT_SECRET?: string
+  // Dashboard (Fase 4): login con GitHub
+  NUXT_SESSION_PASSWORD?: string
+  NUXT_OAUTH_GITHUB_CLIENT_ID?: string
+  NUXT_OAUTH_GITHUB_CLIENT_SECRET?: string
+  ADMIN_GITHUB_LOGIN?: string
 }
 
 /** Bindings y variables de Cloudflare (en dev las provee nitro-cloudflare-dev desde wrangler.toml y .dev.vars). */

@@ -15,7 +15,9 @@ const loader = (src: string) =>
   `const late=()=>setTimeout(go,lcp?4e3:0);document.readyState==="complete"?late():addEventListener("load",late,{once:!0})</script>`
 
 export default defineNitroPlugin((nitro) => {
-  nitro.hooks.hook('render:html', (html) => {
+  nitro.hooks.hook('render:html', (html, { event }) => {
+    // El dashboard es una app interactiva: carga su JS de inmediato
+    if (event.path.startsWith('/admin')) return
     html.head = html.head.map((chunk) =>
       chunk.replace(PRELOAD_JS_RE, '').replace(ENTRY_RE, (_, src: string) => loader(src)),
     )

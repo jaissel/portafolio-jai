@@ -9,4 +9,5 @@ TURNSTILE_SECRET_KEY=
 ASK_DAILY_CAP=300
 HASH_SALT_SECRET=
 GITHUB_USERNAME=
+# Callback de la OAuth App local: http://localhost:3000/auth/callback
 NUXT_PUBLIC_SITE_URL=http://localhost:3000

@@ -7,7 +7,7 @@ Lee `PLAN.md` antes de cualquier tarea: tiene stack, arquitectura, esquema de D1
 - Nuxt 4 + TypeScript estricto, Composition API con `<script setup>`. pnpm.
 - El diseño de referencia es `design/home-mockup.dc.html` (versión "Solar coral"), con `home-tablet.dc.html`, `home-mobile.dc.html` y las reglas de `design/RESPONSIVE.md` (mobile-first, breakpoints 640 y 1024). Respeta paleta, tipografías, radios y orden de secciones. Los `{{...}}` y el `<script type="text/x-dc">` de ese archivo son del editor de mockups; usa solo su markup y estilos como guía visual.
 - Imágenes del mockup: `/_blob/e70de4…` = `design/avatars/avatar-code.jpg` (hero), `/_blob/39a53f…` = `design/avatars/avatar-peace.jpg` (sobre mí), `/_blob/9778de…` = `design/avatars/avatar-wink.gif` (chat). `avatar-white.jpg` es la versión con fondo blanco, para OG y favicon.
-- Todo texto visible sale del contenido (seed JSON → D1), nunca hardcodeado. Siempre en ES y EN.
+- Todo texto visible del sitio público sale del contenido (seed JSON → D1), nunca hardcodeado. Siempre en ES y EN. Excepción: la interfaz del dashboard (`/admin`) es una herramienta privada, en español y en el código.
 - Sin proyectos personales no-dev (impresión 3D, tiendas propias) ni testimonios.
 - Analítica sin cookies; nunca guardar IPs.
 - Presupuesto de performance: Lighthouse ≥ 98 móvil, JS inicial < 90 KB gz. Antes de añadir una dependencia, justifica su peso.
@@ -28,4 +28,6 @@ Lee `PLAN.md` antes de cualquier tarea: tiene stack, arquitectura, esquema de D1
 - Botones y superficies con texto blanco chico usan `--c-accent-fill` (#D4420F) en vez de `--c-accent` para cumplir contraste AA.
 - Secciones sin interacción van con `hydrate-never` en `app/pages/[locale]/index.vue`. Si una sección necesita JS, cámbiala a `hydrate-on-visible`.
 - `server/plugins/defer-js.ts` carga el JS de Nuxt después del primer LCP. No reintroducir `modulepreload` en la home.
+- Dashboard: `server/utils/auth.ts` (sesión cifrada de h3, cookie `jai_admin` solo en /admin) + `server/middleware/admin-guard.ts` protege `/api/admin/**`. Las páginas `/admin/*` usan `definePageMeta({ middleware: 'admin' })`. Variables: `NUXT_SESSION_PASSWORD`, `NUXT_OAUTH_GITHUB_CLIENT_ID`, `NUXT_OAUTH_GITHUB_CLIENT_SECRET`, `ADMIN_GITHUB_LOGIN` (en `.dev.vars` y como secretos de Cloudflare). Hacen falta dos OAuth Apps de GitHub: local (`http://localhost:3000/auth/callback`) y producción (`https://jaissel.is-a.dev/auth/callback`).
+- En plantillas Vue no uses casts de TypeScript dentro de `v-model` (`v-model="x as string"`): pasa en dev pero rompe el build de producción.
 - Para medir: `pnpm build && pnpm preview` y Lighthouse móvil contra `localhost:8788` sin el dev server corriendo (la contención de CPU infla los resultados).

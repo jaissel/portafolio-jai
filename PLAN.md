@@ -14,7 +14,7 @@ Portafolio bilingüe (ES/EN) de Jaissel Pérez, Senior Full Stack Developer. Inc
 | i18n | Rutas propias `/[locale]` (`/es`, `/en`) + hreflang con `useHead` | Todo el texto viene del contenido, así que `@nuxtjs/i18n`/vue-i18n sería peso muerto (~20 KB gz) |
 | Hosting | **Cloudflare Pages** (preset de Nitro `cloudflare-pages`) | Gratis, rápido, despliegue al hacer push |
 | Base de datos | **Cloudflare D1** (SQLite) | Gratis; guarda contenido, eventos y logs del chat |
-| Auth del dashboard | **GitHub OAuth** con `nuxt-auth-utils` y allowlist de mi usuario | Gratis y sin configurar nada fuera del código |
+| Auth del dashboard | **GitHub OAuth** propio (≈60 líneas) con sesiones cifradas de h3 y allowlist de mi usuario | Gratis, sin dependencias y sin JS extra en el sitio público (en vez de `nuxt-auth-utils`) |
 | IA del chat | **Gemini API, capa gratis (modelo Flash)** | La capa gratuita alcanza para un portafolio. Modelo en la variable `GEMINI_MODEL`; verificar límites vigentes en AI Studio |
 | Anti-abuso | **Cloudflare Turnstile** + rate limit por IP en D1 | Gratis |
 | Estilos | CSS con tokens (variables) + scoped styles | Sin dependencias pesadas, Lighthouse 100 |
@@ -240,10 +240,10 @@ Login con GitHub; solo entra el usuario en `ADMIN_GITHUB_LOGIN`.
 - [x] `/api/track` + script de tracking + `data-track` en todos los CTAs _(script inline `app/assets/track.js` en vez de un composable: corre antes de la hidratación diferida)_
 
 **Fase 4 — Dashboard**
-- [ ] Login GitHub con allowlist
-- [ ] Estadísticas (KPIs, línea, embudo, top clicks, países, referrers, dispositivos, en vivo, CSV)
-- [ ] Editor de contenido ES/EN con vista previa e invalidación de caché
-- [ ] Vista de preguntas del chat
+- [x] Login GitHub con allowlist _(`/auth/login` → `/auth/callback`; solo `ADMIN_GITHUB_LOGIN`; sesión cifrada de h3; retención de 13 meses al iniciar sesión)_
+- [x] Estadísticas (KPIs, línea, embudo, top clicks, países, referrers, dispositivos, en vivo, CSV) _(+ interacción por bloque y secciones vistas; gráficos en SVG propio)_
+- [x] Editor de contenido ES/EN con vista previa e invalidación de caché _(editor recursivo genérico; la invalidación es por versión de contenido)_
+- [x] Vista de preguntas del chat _(marcar → aparece como borrador de FAQ en Contenido → ask)_
 
 **Fase 5 — Chat IA**
 - [ ] Turnstile, rate limit, `/api/ask` con streaming, logs y fallback
